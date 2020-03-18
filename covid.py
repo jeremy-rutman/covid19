@@ -1,17 +1,23 @@
 #dl latest data -
-# curl https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv --output covid.csv
+# curl https://raw.githubusercontent.com/CSSEGISandData/COVID-19//master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv --output covid.csv
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 df = pd.read_csv('covid.csv')
 print(df.columns)
 df = df.groupby('Country/Region',as_index=False).sum() #.unstack()
 df = df[df.iloc[:,-1]>200]  # take countries w, > 200 cases by  now
+cols = df.columns
+for col in cols[3:]:
+    df[col] = df[col].apply(lambda r:r if r>50  else np.NaN)
 
 def plotter(dates,row):
     confirmed_cases = row[3:]
-    plt.plot(dates,confirmed_cases,'-.',label=row[0])
+    indices = np.where(confirmed_cases>50)
+    first_ind = indices[0][0]
+    plt.plot(dates,confirmed_cases,'-o',label=row[0],markersize=3)
 
 df.apply(lambda r: plotter(df.columns[3:],r),axis=1)
 plt.legend(loc='upper left')
