@@ -3,7 +3,7 @@ pandas on covid19 data from https://github.com/CSSEGISandData/COVID-19/blob/mast
 
 dl the latest with curl, e.g.
 
-curl https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv --output covid.csv
+curl https://raw.githubusercontent.com/CSSEGISandData/COVID-19//master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv --output covid.csv
 
 
 
