@@ -4,7 +4,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('time_series_19-covid-Confirmed.csv')
+df = pd.read_csv('covid.csv')
 print(df.columns)
 df = df.groupby('Country/Region',as_index=False).sum() #.unstack()
 df = df[df.iloc[:,-1]>200]  # take countries w, > 200 cases by  now
