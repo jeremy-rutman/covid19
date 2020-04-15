@@ -7,6 +7,6 @@ curl https://raw.githubusercontent.com/CSSEGISandData/COVID-19//master/csse_covi
 
 
 
-![covid deaths per million](https://github.com/jeremy-rutman/covid19/blob/master/deaths_per_millioni.png)
+![covid deaths per million](https://github.com/jeremy-rutman/covid19/blob/master/deaths_per_million.png)
 
 ![covid](https://github.com/jeremy-rutman/covid19/blob/master/covid.png)
